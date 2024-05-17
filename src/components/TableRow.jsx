@@ -30,7 +30,7 @@ const TableRow = ({
       mission: mission,
       vehicle: vehicle,
       location: location,
-      daysTillLaunch: daysTillLaunch,
+      days_till_launch: daysTillLaunch,
     };
     editLaunch(id, editedLaunch);
   };

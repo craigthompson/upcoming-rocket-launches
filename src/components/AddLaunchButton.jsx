@@ -1,9 +1,9 @@
-const AddLaunchButton = () => {
+const AddLaunchButton = ({ addLaunch }) => {
   return (
     <tr>
       <td></td>
       <td colSpan={4}>
-        <button>Add Launch</button>
+        <button onClick={addLaunch}>Add Launch</button>
       </td>
     </tr>
   );

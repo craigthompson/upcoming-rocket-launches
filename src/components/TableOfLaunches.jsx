@@ -7,11 +7,22 @@ import AddLaunchButton from "./AddLaunchButton";
 const TableOfLaunches = () => {
   const [launchesData, setLaunchesData] = useState([]);
 
-  // TODO:
-  const addLaunch = () => {};
+  const addLaunch = async () => {
+    const newLaunch = {
+      mission: "",
+      vehicle: "",
+      location: "",
+      days_till_launch: 0,
+      isEditing: true,
+    };
+    const { data } = await axios.post("/launches", newLaunch);
+    setLaunchesData(data);
+  };
 
-  // TODO:
-  const editLaunch = () => {};
+  const editLaunch = async (id, body) => {
+    const { data } = await axios.put(`/launches/${id}`, body);
+    setLaunchesData(data);
+  };
 
   const deleteLaunch = async (id) => {
     const { data } = await axios.delete(`/launches/${id}`);
@@ -28,11 +39,11 @@ const TableOfLaunches = () => {
       key={launch.id}
       editLaunch={editLaunch}
       deleteLaunch={() => deleteLaunch(launch.id)}
+      id={launch.id}
     />
   ));
 
   useEffect(() => {
-    console.log("Use Effect");
     getData();
   }, []);
 
@@ -41,14 +52,12 @@ const TableOfLaunches = () => {
     setLaunchesData(data);
   };
 
-  console.log(launchesData);
-
   return (
     <table>
       <TableHeader />
       <tbody>{rows}</tbody>
       <tfoot>
-        <AddLaunchButton /> // TODO:
+        <AddLaunchButton addLaunch={addLaunch} />
       </tfoot>
     </table>
   );
