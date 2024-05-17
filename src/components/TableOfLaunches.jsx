@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import TableRow from "./TableRow";
 import AddLaunchButton from "./AddLaunchButton";
+import "./TableOfLaunches.css";
 
 const TableOfLaunches = () => {
   const [launchesData, setLaunchesData] = useState([]);

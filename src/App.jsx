@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <h1>🚀 Upcoming Rocket Launches</h1>
+      <h1>🚀 Upcoming Rocket Launches 🚀</h1>
       <TableOfLaunches />
     </>
   );
