@@ -48,6 +48,23 @@ const handlerFunctions = {
     launchData.push(req.body);
     res.status(200).send(launchData);
   },
+
+  deleteLaunch: (req, res) => {
+    const indexToRemove = launchData.findIndex(
+      (el) => el.id === +req.params.id // Coerce the id string to a number
+    );
+    launchData.splice(indexToRemove, 1);
+    res.status(200).send(launchData);
+  },
+
+  editLaunch: (req, res) => {
+    const indexToUpdate = launchData.findIndex(
+      (el) => el.id === +req.params.id // Coerce the id string to a number
+    );
+    req.body.id = +req.params.id; // Coerce the id to a number for future comparison operations
+    launchData.splice(indexToUpdate, 1, req.body);
+    res.status(200).send(launchData);
+  },
 };
 
 export default handlerFunctions;

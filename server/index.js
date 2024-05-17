@@ -17,13 +17,12 @@ app.use(express.json());
 //////////////////////////////////////////////
 //  Endpoints
 //////////////////////////////////////////////
-const { getLaunches, addLaunch } = handlerFunctions;
+const { getLaunches, addLaunch, deleteLaunch, editLaunch } = handlerFunctions;
 
 app.get("/launches", getLaunches);
 app.post("/launches", addLaunch);
-// app.post("/invoices", addInvoice);
-// app.delete("/invoices/:id", deleteInvoice);
-// app.put("/invoices/:id", editInvoice);
+app.delete("/launches/:id", deleteLaunch);
+app.put("/launches/:id", editLaunch);
 
 //////////////////////////////////////////////
 //  Config server on port
