@@ -23,16 +23,20 @@ const TableRow = ({
 
   const setEditMode = () => setIsEditing(true);
   const setNormalMode = () => {
-    setIsEditing(false);
+    if (+daysTillLaunch + 1 && mission && vehicle && location) {
+      setIsEditing(false);
 
-    const editedLaunch = {
-      id: id,
-      mission: mission,
-      vehicle: vehicle,
-      location: location,
-      days_till_launch: daysTillLaunch,
-    };
-    editLaunch(id, editedLaunch);
+      const editedLaunch = {
+        id: id,
+        mission: mission,
+        vehicle: vehicle,
+        location: location,
+        days_till_launch: daysTillLaunch,
+      };
+      editLaunch(id, editedLaunch);
+    } else {
+      alert("Invalid values given. Please try again.");
+    }
   };
 
   return (
