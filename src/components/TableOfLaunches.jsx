@@ -16,17 +16,17 @@ const TableOfLaunches = () => {
       days_till_launch: 0,
       isEditing: true,
     };
-    const { data } = await axios.post("/launches", newLaunch);
+    const { data } = await axios.post("/api/launches", newLaunch);
     setLaunchesData(data);
   };
 
   const editLaunch = async (id, body) => {
-    const { data } = await axios.put(`/launches/${id}`, body);
+    const { data } = await axios.put(`/api/launches/${id}`, body);
     setLaunchesData(data);
   };
 
   const deleteLaunch = async (id) => {
-    const { data } = await axios.delete(`/launches/${id}`);
+    const { data } = await axios.delete(`/api/launches/${id}`);
     setLaunchesData(data);
   };
 
@@ -49,7 +49,7 @@ const TableOfLaunches = () => {
   }, []);
 
   const getData = async () => {
-    const { data } = await axios.get("/launches");
+    const { data } = await axios.get("/api/launches");
     setLaunchesData(data);
   };
 

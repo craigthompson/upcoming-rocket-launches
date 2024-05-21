@@ -19,10 +19,10 @@ app.use(express.json());
 //////////////////////////////////////////////
 const { getLaunches, addLaunch, deleteLaunch, editLaunch } = handlerFunctions;
 
-app.get("/launches", getLaunches);
-app.post("/launches", addLaunch);
-app.delete("/launches/:id", deleteLaunch);
-app.put("/launches/:id", editLaunch);
+app.get("/api/launches", getLaunches);
+app.post("/api/launches", addLaunch);
+app.delete("/api/launches/:id", deleteLaunch);
+app.put("/api/launches/:id", editLaunch);
 
 //////////////////////////////////////////////
 //  Config server on port
